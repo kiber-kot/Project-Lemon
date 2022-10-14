@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static constant.AllConstant.CONSOLE_ERRORS_500;
+import static constant.AllConstant.CONSOLE_ERRORS_ALL;
 import static util.WebConfig.BASE_CONFIG;
 
 public class MainUtil {
@@ -43,7 +44,7 @@ public class MainUtil {
     @AfterEach
     void loggerAfter(){
         if(BASE_CONFIG.logNetwork()){
-            logger.getNetworkHelper().checkStatusCodeInNetworkConsole(logger.getNetworkEntity() , CONSOLE_ERRORS_500);
+            logger.getNetworkHelper().checkStatusCodeInNetworkConsole(logger.getNetworkEntity() , CONSOLE_ERRORS_ALL);
         }
     }
 

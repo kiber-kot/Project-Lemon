@@ -11,7 +11,7 @@ import util.MainUtil;
 import static constant.AllConstant.*;
 
 
-@DisplayName("01_Тест_Авторизация")
+@DisplayName("01_Тест_Яндекс")
 public class YaTest extends MainUtil  {
     private final YaMainMainStep yaMainStep = new YaMainMainStep();
     private final YaSearchValueStep yaSearchValueStep = new YaSearchValueStep();
