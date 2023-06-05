@@ -9,6 +9,7 @@ public interface WebConfig extends Config {
     WebConfig BASE_CONFIG = ConfigFactory.create(WebConfig.class, System.getenv(), System.getProperties());
 
     @Key("ya.url")
+    @DefaultValue("https://ya.ru")
     String getYaUrl();
 
     @Key("http.connection.timeout")

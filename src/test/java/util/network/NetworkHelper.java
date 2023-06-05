@@ -4,8 +4,7 @@ import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v104.network.Network;
-import org.opentest4j.AssertionFailedError;
+import org.openqa.selenium.devtools.v110.network.Network;
 import util.MainUtil;
 import util.WaitHelper;
 
@@ -14,7 +13,6 @@ import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Optional;
 
-import static constant.AllConstant.*;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**

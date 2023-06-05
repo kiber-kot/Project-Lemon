@@ -44,6 +44,9 @@ public class MainUtil {
     @AfterEach
     void loggerAfter(){
         if(BASE_CONFIG.logNetwork()){
+            if (logger == null){
+                return;
+            }
             logger.getNetworkHelper().checkStatusCodeInNetworkConsole(logger.getNetworkEntity() , CONSOLE_ERRORS_ALL);
         }
     }
@@ -65,10 +68,11 @@ public class MainUtil {
     private void starter() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
             var os = System.getProperty("os.name").toLowerCase();
             if (os.contains("mac os") || os.contains("windows")) {
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 driver.manage().window().maximize();
                 Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
             } else {

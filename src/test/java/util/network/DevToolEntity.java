@@ -1,10 +1,9 @@
 package util.network;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.openqa.selenium.devtools.v104.network.model.Headers;
+import org.openqa.selenium.devtools.v110.network.model.Headers;
 
 import java.util.Map;
 
