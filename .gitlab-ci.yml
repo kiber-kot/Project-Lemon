@@ -1,0 +1,33 @@
+# Пример создания ci-cd в gitLab
+
+image: markhobson/maven-chrome:jdk-17
+
+cache:
+  paths:
+    - .m2/repository/
+
+variables:
+  BRANCH_NAME: "$CI_COMMIT_BRANCH"
+
+test:
+  stage: test
+  script:
+    - echo "Название ветки = ${BRANCH_NAME}"
+    - mvn clean test -Denv=${BRANCH_NAME}
+  allow_failure: true
+  artifacts:
+    when: always
+    paths:
+      - target/allure-results
+
+deploy:
+  stage: deploy
+  script:
+    - mvn io.qameta.allure:allure-maven:report
+  allow_failure: true
+  artifacts:
+    when: always
+    paths:
+      - /builds/sberlogistic/oms/ela/test/qa-p73-automation/target/site/allure-maven-plugin
+
+#        где - sberlogistic/oms/ela/test/qa-p73-automation , является ссылко на проект: https://gitlab.sblogistica.ru/sberlogistic/oms/ela/test/qa-p73-automation
